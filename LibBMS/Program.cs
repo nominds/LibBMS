@@ -55,7 +55,7 @@ class Program
 
             // Wait for user input before showing the menu again
             Console.WriteLine("\nPress any key to continue...");
-            Console.ReadKey();
+            Console.Read();
         }
     }
 
