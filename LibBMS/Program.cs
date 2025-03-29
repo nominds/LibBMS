@@ -128,7 +128,7 @@ class Program
         }
 
         var book = bookService.GetBookById(bookId);
-        if (book == null)
+        if (book == null || string.IsNullOrEmpty(book.ISBN))
         {
             Console.WriteLine("Book not found.");
             return;
