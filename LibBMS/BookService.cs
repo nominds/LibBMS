@@ -23,7 +23,7 @@ namespace LibBMS.Services
                 Id = new Random().Next(1, 1000),
                 Title = title,
                 Author = author,
-                YearPublished = int.Parse(yearPublished),                
+                YearPublished = int.Parse(yearPublished),
                 ISBN = isbn
             };
             _bookRepository.Add(book);

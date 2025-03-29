@@ -95,7 +95,8 @@ class Program
 
         Console.Write("ISBN (both 10 digits - 13 digits): ");
         var isbn = Console.ReadLine();
-        if (string.IsNullOrWhiteSpace(isbn))
+        if (string.IsNullOrWhiteSpace(isbn)
+            || !(Utilities.IsValidISBN(isbn)))
         {
             Console.WriteLine("\nError: Invalid ISBN. Please try again.");
             return;
@@ -104,7 +105,7 @@ class Program
         Console.Write("Year Published (YYYY): ");
         var yearPublished = Console.ReadLine();
         if (string.IsNullOrWhiteSpace(yearPublished)
-        || Utilities.IsInvalidYear(yearPublished))
+            || !(Utilities.IsValidYear(yearPublished)))
         {
             Console.WriteLine("Error: Invalid year error. Please try again.");
             return;
@@ -171,7 +172,7 @@ class Program
         }
         else
         {
-        
+
             foreach (var book in books)
             {
                 Console.WriteLine($"{book.Id}");
