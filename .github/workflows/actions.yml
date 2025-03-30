@@ -25,7 +25,9 @@ jobs:
         run: dotnet restore
 
       - name: Build
+        working-directory: ./LibBMS
         run: dotnet build
 
       - name: Run Tests
+        working-directory: ./LibBMS.Tests
         run: dotnet test
