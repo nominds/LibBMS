@@ -19,7 +19,7 @@ namespace LibBMS.Data.Repository
 
         public Book GetById(int id)
         {
-            return _books.SingleOrDefault(book => book.Id == id) ?? (Book)new Object();
+            return _books.SingleOrDefault(book => book.Id == id);
 
         }
 
