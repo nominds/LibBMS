@@ -2,11 +2,15 @@
 using Serilog;
 
 using LibBMS.Common;
+using LibBMS.Logger;
+
 using LibBMS.Services;
 using LibBMS.Data.Repository;
-using LibBMS.Logger;
+
 using LibBMS.AddBookWorker;
 using LibBMS.ViewBookWorker;
+using LibBMS.DeleteBookWorker;
+using LibBMS.UpdateBookWorker;
 
 
 
@@ -17,10 +21,15 @@ class Program
 
         LibBMSLogger.Instance.Information("Welcome to the Library Book Management System!");
 
-        var addBookWorker = new BookServiceAddBookWorker();
-        var viewBookWorker = new BookServiceViewBookWorker();
         var bookRepository = new BookRepository();
         var bookService = new BookService(bookRepository);
+
+        var addBookWorker = new BookServiceAddBookWorker();
+        var viewBookWorker = new BookServiceViewBookWorker();
+        var deleteBookWorker = new BookServiceDeleteBookWorker();
+        var updateBookWorker = new BookServiceUpdateBookWorker();
+
+
         try
         {
 
@@ -52,10 +61,28 @@ class Program
 
                     case "4":
                         LibBMSLogger.Instance.Information("Calling UpdateBook");
+                        try
+                        {
+                            updateBookWorker.UpdateBook(bookService);
+                        }
+                        catch (Exception ex)
+                        {
+                            LibBMSLogger.Instance.Error("Failed to update the book with id {@bookId}", ex.Message);
+                        }
                         break;
 
                     case "5":
                         LibBMSLogger.Instance.Information("Calling DeleteBook");
+
+                        try
+                        {
+                            deleteBookWorker.DeleteBook(bookService);
+                        }
+                        catch (Exception ex)
+                        {
+                            LibBMSLogger.Instance.Error("Failed to delete the book with id {@bookId}", ex.Message);
+                        }
+
                         break;
 
                     case "6":
