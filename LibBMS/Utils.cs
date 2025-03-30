@@ -22,7 +22,6 @@ namespace LibBMS.Common
                 }
                 else
                 {
-                    Console.WriteLine($"Year is not in the allowed range (1 to {currentYear})");
                     return false;
                 }
             }
