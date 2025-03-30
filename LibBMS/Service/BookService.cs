@@ -35,8 +35,9 @@ namespace LibBMS.Services
             return _bookRepository.GetAll();
         }
 
-        public void UpdateBook(int id, string title, string author, string isbn, int yearPublished)
+        public void UpdateBook(Book book)
         {
+            /*
             var book = new Book
             {
                 Id = id,
@@ -45,6 +46,7 @@ namespace LibBMS.Services
                 YearPublished = yearPublished,
                 ISBN = isbn
             };
+            */
             _bookRepository.Update(book);
         }
 

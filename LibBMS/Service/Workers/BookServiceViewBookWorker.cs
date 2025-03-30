@@ -24,7 +24,7 @@ namespace LibBMS.ViewBookWorker
             var book = bookService.GetBookById(bookId);
             if (book == null || string.IsNullOrEmpty(book.ISBN))
             {
-                LibBMSLogger.Instance.Information("No book find in the library with given bookId: {@bookId}.", bookId);
+                LibBMSLogger.Instance.Information("No book found in the library with given bookId: {@bookId}.", bookId);
                 return;
             }
 
@@ -40,14 +40,14 @@ namespace LibBMS.ViewBookWorker
             var books = bookService.GetAllBooks().ToList();
             if (!books.Any())
             {
-                LibBMSLogger.Instance.Information("Oops ! The library has opened very recently. Please add new books to your favorite library.");
+                LibBMSLogger.Instance.Information("Oops ! The library has opened very recently or books available are none. Please add new books to your favorite library.");
             }
             else
             {
                 LibBMSLogger.Instance.Information("List of available books in the library.");
                 foreach (var book in books)
                 {
-                    LibBMSLogger.Instance.Information("{@book.Id}: {@book.Title} by {@book.Author} with ISBN: {@book.ISBN} publshed in year ({@book.YearPublished})", book);
+                    LibBMSLogger.Instance.Information("{@Id}: {@Title} by {@Author} with ISBN: {@ISBN} publshed in year ({@YearPublished})", book.Id, book.Title, book.Author, book.ISBN, book.YearPublished);
                 }
             }
         }
@@ -59,7 +59,7 @@ namespace LibBMS.ViewBookWorker
             var books = bookService.GetAllBooks().ToList();
             if (!books.Any())
             {
-                LibBMSLogger.Instance.Information("Oops ! The library has opened very recently. Please add new books to your favorite library.");
+                LibBMSLogger.Instance.Information("Oops ! The library has opened very recently or books available are none. Please add new books to your favorite library.");
             }
             else
             {

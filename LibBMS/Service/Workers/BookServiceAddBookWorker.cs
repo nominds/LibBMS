@@ -12,7 +12,7 @@ namespace LibBMS.AddBookWorker
         public void AddBook(BookService bookService)
         {
             
-            Console.WriteLine("\nEnter the book details:");
+            LibBMSLogger.Instance.Information("\nEnter the book details:");
 
             Console.Write("Title: ");
             var title = Console.ReadLine();

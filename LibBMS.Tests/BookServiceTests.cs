@@ -44,8 +44,9 @@ namespace LibBMS.Tests
        Assert.NotNull(book);
        Assert.Equal("Test", book.Title);
 
-       _bookService.UpdateBook(bookId, "Test", "Test", "1231232", 2024);
-       var updatedBook = _bookService.GetBookById(bookId);
+        book.YearPublished = 2024;
+       _bookService.UpdateBook(book);
+       var updatedBook = _bookService.GetBookById(book.Id);
        Assert.NotNull(updatedBook);
        Assert.Equal(2024, updatedBook.YearPublished);
     }
