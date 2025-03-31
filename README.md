@@ -34,7 +34,7 @@ Note: Ensure docker daemon is running and in stable state on the machine where y
 1. Execute following commands:
     * `docker build -t libbms .`
 2. After image has been built, run following to run the container    
-    * `docker run --rm myapp-tests`
+    * `docker run --rm libbms`
 
 Above will execute the tests inside the Docker container. If the container exit successfully the container will exit.
 
