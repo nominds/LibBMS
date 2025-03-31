@@ -7,7 +7,7 @@ using LibBMS.ViewBookWorker;
 namespace LibBMS.DeleteBookWorker
 {
 
-    public class BookServiceDeleteBookWorker()
+    public class BookServiceDeleteBookWorker : IBookServiceDeleteBookWorker
     {
 
         public void DeleteBook(BookService bookService)

@@ -6,7 +6,7 @@ using LibBMS.ViewBookWorker;
 namespace LibBMS.UpdateBookWorker
 {
 
-    public class BookServiceUpdateBookWorker()
+    public class BookServiceUpdateBookWorker : IBookServiceUpdateBookWorker
     {
 
         public void UpdateBook(BookService bookService)

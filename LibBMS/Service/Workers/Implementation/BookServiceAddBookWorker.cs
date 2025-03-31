@@ -6,12 +6,12 @@ using LibBMS.Logger;
 namespace LibBMS.AddBookWorker
 {
 
-    public class BookServiceAddBookWorker()
+    public class BookServiceAddBookWorker : IBookServiceAddBookWorker
     {
 
         public void AddBook(BookService bookService)
         {
-            
+
             LibBMSLogger.Instance.Information("\nEnter the book details:");
 
             Console.Write("Title: ");

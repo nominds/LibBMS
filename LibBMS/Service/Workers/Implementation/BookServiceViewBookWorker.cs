@@ -6,7 +6,7 @@ using LibBMS.Logger;
 namespace LibBMS.ViewBookWorker
 {
 
-    public class BookServiceViewBookWorker()
+    public class BookServiceViewBookWorker : IBookServiceViewBookWorker
     {
 
         public void ViewBookById(BookService bookService)
@@ -52,7 +52,7 @@ namespace LibBMS.ViewBookWorker
             }
         }
 
-        public void ListBooksById(BookService bookService)
+        public virtual void ListBooksById(BookService bookService)
         {
             LibBMSLogger.Instance.Information("\nList of all the books currently available in the library:");
 
@@ -60,6 +60,7 @@ namespace LibBMS.ViewBookWorker
             if (!books.Any())
             {
                 LibBMSLogger.Instance.Information("Oops ! The library has opened very recently or books available are none. Please add new books to your favorite library.");
+                return;
             }
             else
             {
