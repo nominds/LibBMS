@@ -15,14 +15,28 @@ Implementation:
         * Workers: Add, Update, View and Delete service worker classes
 
 * LibBMS.Tests
-    * Testing scripts        
+    * Test scripts        
 
 
 * Build:
-    * dotnet build
+    * cd ./LibBMS and execute `dotnet build`
 
 * Test:
-    * cd LibBMS.Tests
-    * dotnet test
+    * cd ./LibBMS.Tests
+    * `dotnet test`
+
+* Docker Support
+    * dockerfile : can be found in the root directory.
+
+* Building docker image to run the test project
+Note: Ensure docker daemon is running and in stable state on the machine where you are building the test project.
+
+1. Execute following commands:
+    * `docker build -t libbms .`
+2. After image has been built, run following to run the container    
+    * `docker run --rm myapp-tests`
+
+Above will execute the tests inside the Docker container. If the container exit successfully the container will exit.
+
 
 
