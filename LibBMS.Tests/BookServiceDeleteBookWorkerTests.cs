@@ -41,6 +41,7 @@ namespace LibBMS.DeleteBookWorker.Tests
             _mockBookService.Setup(b => b.DeleteBook(validBookId)).Verifiable();
             Console.SetIn(new System.IO.StringReader(validBookId.ToString()));
             _deleteBookWorker.DeleteBook(_mockBookService.Object);
+            // behavior of this test case is flaky. Need to be investigated and fixed.
             _mockBookService.Verify(b => b.DeleteBook(validBookId), Times.Once);
 
         }
