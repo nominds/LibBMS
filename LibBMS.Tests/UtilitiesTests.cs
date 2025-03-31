@@ -35,7 +35,7 @@ namespace LibBMS.CommonUtilTests
         {
             string validISBN = "9 781760 279486";
             bool allowed = Utilities.IsValidISBN(validISBN);
-            Assert.True(allowed); 
+            Assert.True(allowed);
         }
 
         [Fact]
@@ -43,7 +43,7 @@ namespace LibBMS.CommonUtilTests
         {
             string validISBN = "0198526636";
             bool allowed = Utilities.IsValidISBN(validISBN);
-            Assert.True(allowed); 
+            Assert.True(allowed);
         }
 
         [Fact]
@@ -51,14 +51,14 @@ namespace LibBMS.CommonUtilTests
         {
             string validISBN = "0-321-16506-XX"; // invalid because it is 12 digits
             bool allowed = Utilities.IsValidISBN(validISBN);
-            Assert.False(allowed); 
+            Assert.False(allowed);
         }
 
         [Fact]
         public void ISBN_ShouldNotEmptyOrWhitespaceISBN()
         {
             bool allowed = Utilities.IsValidISBN("            ");
-            Assert.False(allowed); 
+            Assert.False(allowed);
         }
 
     }

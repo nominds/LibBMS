@@ -8,13 +8,11 @@ namespace LibBMS.BookRepositoryTests
 {
     public class BookRepositoryTests
     {
-        // private readonly BookService _bookService;
         private readonly BookRepository _bookRepository;
 
         public BookRepositoryTests()
         {
             _bookRepository = new BookRepository();
-            // _bookService = new BookService(_bookRepository);
         }
 
         [Fact]
@@ -52,7 +50,7 @@ namespace LibBMS.BookRepositoryTests
 
             var bookId = _bookRepository.Add(book);
 
-            var bookOne = _bookRepository.GetById(bookId+1);
+            var bookOne = _bookRepository.GetById(bookId + 1);
             Assert.Null(bookOne);
         }
 
@@ -152,13 +150,16 @@ namespace LibBMS.BookRepositoryTests
             Assert.Equal("2012", (bookOne.YearPublished).ToString());
             Assert.Equal("Book1", bookOne.Title);
 
-            try{
-            _bookRepository.Delete(bookId+1);
-            } catch (KeyNotFoundException knfe) {
+            try
+            {
+                _bookRepository.Delete(bookId + 1);
+            }
+            catch (KeyNotFoundException knfe)
+            {
                 Assert.Equal("Book not found.", knfe.Message);
 
             }
-            
+
         }
 
         [Fact]
@@ -181,14 +182,17 @@ namespace LibBMS.BookRepositoryTests
             Assert.Equal("Book1", bookOne.Title);
 
             bookOne.Id = bookId + 1;
-            
-            try{
-            _bookRepository.Update(bookOne);
-            } catch (KeyNotFoundException knfe) {
+
+            try
+            {
+                _bookRepository.Update(bookOne);
+            }
+            catch (KeyNotFoundException knfe)
+            {
                 Assert.Equal("Book not found.", knfe.Message);
 
             }
-            
+
         }
 
 

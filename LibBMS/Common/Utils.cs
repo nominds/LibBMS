@@ -75,7 +75,6 @@ namespace LibBMS.Common
                 return false;
             }
 
-            // ISBN-10 is valid if sum is divisible by 11
             return total % 11 == 0;
 
 
@@ -94,17 +93,14 @@ namespace LibBMS.Common
 
             int total = 0;
 
-            // Loop through each character in the ISBN-13 string
             for (int i = 0; i < 13; i++)
             {
                 if (!char.IsDigit(isbn[i])) return false;
 
-                // Alternate between multiplying by 1 and 3
                 int digit = isbn[i] - '0';
                 total += (i % 2 == 0) ? digit : digit * 3;
             }
 
-            // ISBN-13 is valid if sum is divisible by 10
             return total % 10 == 0;
         }
 

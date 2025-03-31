@@ -7,7 +7,7 @@ using LibBMS.Data.Repository;
 
 namespace LibBMS.Services
 {
-    public class BookService
+    public class BookService : IBookService
     {
         private readonly IBookRepository _bookRepository;
 
@@ -16,7 +16,7 @@ namespace LibBMS.Services
             _bookRepository = bookRepository;
         }
 
-        public int AddBook(string title, string author, string isbn, string yearPublished)
+        public virtual int AddBook(string title, string author, string isbn, string yearPublished)
         {
             var book = new Book
             {
@@ -35,27 +35,17 @@ namespace LibBMS.Services
             return _bookRepository.GetAll();
         }
 
-        public void UpdateBook(Book book)
+        public virtual void UpdateBook(Book book)
         {
-            /*
-            var book = new Book
-            {
-                Id = id,
-                Title = title,
-                Author = author,
-                YearPublished = yearPublished,
-                ISBN = isbn
-            };
-            */
             _bookRepository.Update(book);
         }
 
-        public void DeleteBook(int id)
+        public virtual void DeleteBook(int id)
         {
             _bookRepository.Delete(id);
         }
 
-        public Book GetBookById(int id)
+        public virtual Book GetBookById(int id)
         {
             return _bookRepository.GetById(id);
         }
