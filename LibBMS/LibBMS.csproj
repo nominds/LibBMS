@@ -9,7 +9,7 @@
 
   <ItemGroup>
     <!-- Serilog core package -->
-    <PackageReference Include="Serilog" Version="2.10.0" />  <!-- Use latest version -->
+    <PackageReference Include="Serilog" Version="3.0.0" />  <!-- Use latest version -->
 
     <!-- Serilog sink for writing to the console -->
     <PackageReference Include="Serilog.Sinks.Console" Version="4.1.0" /> <!-- Use latest version -->
